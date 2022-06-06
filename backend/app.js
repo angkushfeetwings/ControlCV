@@ -11,14 +11,20 @@ dotenv.config({ path: "./config.env" });
 require("./database");
 
 const cors = require("cors");
-app.use(cors({ origin: "*", credentials: true }));
+app.use(cors({ origin: true, credentials: true }));
 
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());
 
 // ROUTES
-const routes = require("./routes/userRoutes");
-app.use("/api", routes);
+const userRoutes = require("./routes/userRoutes");
+const courseRoutes = require("./routes/courseRoute");
+const roadmapRoutes = require("./routes/roadmapRoute");
+const contactRoutes = require("./routes/contactRoute");
+app.use("/api/user", userRoutes);
+app.use("/api/course", courseRoutes);
+app.use("/api/roadmap", roadmapRoutes);
+app.use("/api/contact", contactRoutes);
 
 // ERROR-MIDDLEWARE
 const errorMiddleware = require("./middleware/error");
