@@ -1,3 +1,6 @@
+# root
+/reference.txt
+
 # backend
 /backend/node_modules
 /backend/config.env
